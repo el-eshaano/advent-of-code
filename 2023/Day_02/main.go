@@ -79,33 +79,23 @@ func part1() {
 }
 
 func gamePower(g GameSet) int {
-	maxR := 0
-	maxG := 0
-	maxB := 0
+	maxR := 1
+	maxG := 1
+	maxB := 1
 
 	for _, game := range g.games {
-		if game.red != 0 && game.red > maxR {
+		if game.red > maxR {
 			maxR = game.red
 		}
-		if game.green != 0 && game.green > maxG {
+		if game.green > maxG {
 			maxG = game.green
 		}
-		if game.blue != 0 && game.blue > maxB {
+		if game.blue > maxB {
 			maxB = game.blue
 		}
 	}
 
 	fmt.Printf("Game %d: %d %d %d\n", g.id, maxR, maxG, maxB)
-
-	if maxR == 0 {
-		maxR = 1
-	}
-	if maxG == 0 {
-		maxG = 1
-	}
-	if maxB == 0 {
-		maxB = 1
-	}
 
 	return int(maxB * maxG * maxR)
 }
@@ -113,14 +103,11 @@ func gamePower(g GameSet) int {
 func part2() {
 	inputs := strings.Split(rawInput, "\n")
 
-	// each input is of the form "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"
-
 	sum := 0
 
 	for _, input := range inputs {
 		gameSet := parseGame(input)
 		sum += gamePower(gameSet)
-		// fmt.Printf("%d: %d\n", gameSet.id, gamePower(gameSet))
 	}
 
 	fmt.Println(sum)
