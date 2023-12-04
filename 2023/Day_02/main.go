@@ -25,7 +25,7 @@ type GameSet struct {
 func parseGame(input string) GameSet {
 
 	gameIdString, gameString := strings.Split(input, ":")[0], strings.Split(input, ":")[1]
-	id, err := cast.ToInt(gameIdString[5:])
+	id, err := cast.StringToInt(gameIdString[5:])
 	if err != nil {
 		panic(err)
 	}
@@ -35,11 +35,11 @@ func parseGame(input string) GameSet {
 		red, green, blue := 0, 0, 0
 		for _, color := range strings.Split(game, ",") {
 			if strings.Contains(color, "red") {
-				red, _ = cast.ToInt(strings.Split(color, " ")[1])
+				red, _ = cast.StringToInt(strings.Split(color, " ")[1])
 			} else if strings.Contains(color, "green") {
-				green, _ = cast.ToInt(strings.Split(color, " ")[1])
+				green, _ = cast.StringToInt(strings.Split(color, " ")[1])
 			} else if strings.Contains(color, "blue") {
-				blue, _ = cast.ToInt(strings.Split(color, " ")[1])
+				blue, _ = cast.StringToInt(strings.Split(color, " ")[1])
 			}
 		}
 		games = append(games, Game{red: red, green: green, blue: blue})

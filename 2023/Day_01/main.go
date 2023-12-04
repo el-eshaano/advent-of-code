@@ -31,7 +31,7 @@ func part1() {
 		lastDigit := -1
 
 		for _, char := range line {
-			digit, err := cast.ToInt(string(char))
+			digit, err := cast.StringToInt(string(char))
 			if err != nil {
 				continue
 			}
@@ -41,7 +41,7 @@ func part1() {
 			lastDigit = digit
 		}
 
-		res, err := cast.ToInt(fmt.Sprintf("%d%d", firstDigit, lastDigit))
+		res, err := cast.StringToInt(fmt.Sprintf("%d%d", firstDigit, lastDigit))
 		if err != nil {
 			continue
 		}
@@ -72,7 +72,7 @@ func part2() {
 		lastDigit := -1
 
 		for _, char := range line {
-			digit, err := cast.ToInt(string(char))
+			digit, err := cast.StringToInt(string(char))
 			if err != nil {
 				continue
 			}
@@ -82,7 +82,7 @@ func part2() {
 			lastDigit = digit
 		}
 
-		res, err := cast.ToInt(fmt.Sprintf("%d%d", firstDigit, lastDigit))
+		res, err := cast.StringToInt(fmt.Sprintf("%d%d", firstDigit, lastDigit))
 		if err != nil {
 			continue
 		}

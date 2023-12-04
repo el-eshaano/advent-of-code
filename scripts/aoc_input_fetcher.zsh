@@ -13,7 +13,8 @@ mkdir -p "$directory"
 
 input_file="${directory}/input.txt"
 
-url="https://adventofcode.com/${AOC_YEAR}/day/${AOC_DAY}/input"
+url_day=$(printf "%d" "$AOC_DAY")
+url="https://adventofcode.com/${AOC_YEAR}/day/${url_day}/input"
 curl -s -b "session=${AOC_SESSION_COOKIE}" "$url" -o "$input_file"
 
 if [[ $? -eq 0 ]]; then

@@ -86,7 +86,7 @@ func getWholeNumber(c Coord) (int, Range) {
 	}
 	max := Coord{Row: row, Col: col}
 
-	val, err := cast.ToInt(num)
+	val, err := cast.StringToInt(num)
 	if err != nil {
 		panic(err)
 	}
