@@ -23,18 +23,22 @@ def get_number(r, c, grid):
     return int("".join(grid[r][start:end])), (r, start, end)
 
 
-seen_ranges = set()
 sum = 0
 for i, row in enumerate(input):
     for j, c in enumerate(row):
-        if c.isdigit() or c == ".":
+        if c != "*":
             continue
 
+        seen_ranges = set()
+        neighbour_numbers = []
         for r, c, val in get_neighbours(i, j, input):
             if val.isdigit():
                 number, r = get_number(r, c, input)
                 if r not in seen_ranges:
                     seen_ranges.add(r)
-                    sum += number
+                    neighbour_numbers.append(number)
+
+        if len(neighbour_numbers) == 2:
+            sum += neighbour_numbers[0] * neighbour_numbers[1]
 
 print(sum)
