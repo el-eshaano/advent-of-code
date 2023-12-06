@@ -1,4 +1,8 @@
 *.sublime-project
 *.sublime-workspace
+
 .vscode/
+
 2023/*/*.txt
+
+modules/__pycache__/
