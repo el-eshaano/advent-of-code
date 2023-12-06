@@ -119,6 +119,7 @@ func part1() {
 						continue
 					}
 					uniqueNumbers = append(uniqueNumbers, neighbourRange)
+					fmt.Println(val)
 					sum += val
 				}
 			}
@@ -161,5 +162,5 @@ func part2() {
 
 func main() {
 	part1()
-	part2()
+	// part2()
 }
